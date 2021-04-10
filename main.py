@@ -1,4 +1,4 @@
-from menu import draw_menu
+from menu import draw_menu, get_action
 
 
 def start_app():
