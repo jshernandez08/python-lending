@@ -20,7 +20,7 @@ def start_app():
         user_action = get_action(input_user)
 
         if not user_action:
-            print("Leaving the app thanks ...")
+            print("\n Leaving the app thanks ...")
             exit()
 
         print(user_action)
