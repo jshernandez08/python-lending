@@ -1,16 +1,6 @@
 from menu import draw_menu
 
 
-def get_action(option: str) -> any:
-    """This method obtains the option action
-
-    :return: (def) The action option
-    """
-    return {
-        '1': "Option 1"
-    }.get(option, None)
-
-
 def start_app():
     """This method starts the app"""
     run_app = True
