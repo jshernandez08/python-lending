@@ -1,7 +1,7 @@
 from menu import draw_menu
 
 
-def get_action(option):
+def get_action(option: str) -> any:
     """This method obtains the option action
 
     :return: (def) The action option
