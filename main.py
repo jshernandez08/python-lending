@@ -1,19 +1,27 @@
-from menu import draw_menu, get_action
+from model.lead import Lead as LeadModel
+from menu import Menu
+
+
+model_instances = {
+    'lead_model': LeadModel()
+}
+
+
+def populate_database():
+    """This method populate all data for the app
+    """
+    for model_instance in model_instances.values():
+        model_instance.populate()
 
 
 def start_app():
     """This method starts the app"""
-    run_app = True
-    while run_app:
-        draw_menu()
+    populate_database()
+    menu = Menu(model_instances)
+    while True:
+        menu.draw_menu()
         input_user = input("Choice a option: ")
-        user_action = get_action(input_user)
-
-        if not user_action:
-            print("\n Leaving the app thanks ...")
-            exit()
-
-        print(user_action)
+        menu.execute_action(input_user)
 
 
 if __name__ == '__main__':

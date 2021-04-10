@@ -1,5 +1,5 @@
 from datetime import datetime
-from app.schemas.personal_info import PersonalInfo
+from schemas.personal_info import PersonalInfo
 
 
 class Lead(PersonalInfo):
