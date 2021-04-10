@@ -1,9 +1,11 @@
 from model.lead import Lead as LeadModel
+from model.prospect import Prospect as ProspectModel
 from menu import Menu
 
 
 model_instances = {
-    'lead_model': LeadModel()
+    'lead_model': LeadModel(),
+    'prospect_model': ProspectModel()
 }
 
 

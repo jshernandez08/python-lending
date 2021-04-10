@@ -9,19 +9,29 @@ class Menu:
         :param option: (str) The option selected by the user
         """
         action = {
-            '1': self.get_lead,
-            '2': self.__model_instances['lead_model'].get_leads
+            '1': self.__get_lead,
+            '2': self.__model_instances['lead_model'].get_leads,
+            '3': self.__get_prospect,
+            '4': self.__model_instances['prospect_model'].get_prospects
         }.get(option, None)
 
         if not action:
             self.exit_app()
         action()
 
-    def get_lead(self):
+    def __get_lead(self):
         """This method call get lead info from the model
         """
         number_identification = input("Enter number identification: ")
         self.__model_instances['lead_model'].get_lead(number_identification)
+
+    def __get_prospect(self):
+        """This method call get prospect info from the model
+        """
+        number_identification = input("Enter number identification: ")
+        self.__model_instances['prospect_model'].get_prospect(
+            number_identification
+        )
 
     def exit_app(self):
         """This method close the app
@@ -34,4 +44,6 @@ class Menu:
         """
         print("(1) Get a leap info \n")
         print("(2) Get leaps info \n")
+        print("(3) Get prospect info \n")
+        print("(4) Get prospects info \n")
         print("(Any number outside the menu) Exit \n\n")
