@@ -66,16 +66,20 @@ class Lead(BaseModel):
             self._draw_person_not_found(number_identification)
             return
 
-        person_national_register_info = NationalRegister()._load_one(
-            number_identification
-        )
+        query = {
+            'number_identification': person_info._number_identification,
+            'date_birth': person_info._date_birth,
+            'name': person_info._name,
+            'last_name': person_info._last_name,
+            'email': person_info._email
+        }
+
+        person_national_register_info = NationalRegister()._load_one(query)
         if not person_national_register_info:
             self.__draw_error_not_in_register(number_identification)
             return
 
-        person_judicial_info = NationalJudicial()._load_one(
-            number_identification
-        )
+        person_judicial_info = NationalJudicial()._load_one(query)
         if person_judicial_info is not None:
             self.__draw_error_judicial(number_identification)
             return
