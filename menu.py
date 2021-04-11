@@ -9,10 +9,10 @@ class Menu:
         :param option: (str) The option selected by the user
         """
         action = {
-            '1': self.__get_lead,
-            '2': self.__model_instances['lead_model']._load,
-            '3': self.__get_prospect,
-            '4': self.__model_instances['prospect_model']._load
+            '1': self.__model_instances['lead_model']._load,
+            '2': self.__get_lead,
+            '3': self.__model_instances['prospect_model']._load,
+            '4': self.__get_prospect
         }.get(option, None)
 
         if not action:
@@ -42,8 +42,8 @@ class Menu:
     def draw_menu(self):
         """This method draw the user menu info
         """
-        print("(1) Get a leap info \n")
-        print("(2) Get leaps info \n")
-        print("(3) Get prospect info \n")
-        print("(4) Get prospects info \n")
+        print("(1) Get leaps info \n")
+        print("(2) Get a leap info \n")
+        print("(3) Get prospects info \n")
+        print("(4) Get prospect info \n")
         print("(Any number outside the menu) Exit \n\n")
