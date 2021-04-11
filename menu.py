@@ -10,9 +10,9 @@ class Menu:
         """
         action = {
             '1': self.__get_lead,
-            '2': self.__model_instances['lead_model'].get_leads,
+            '2': self.__model_instances['lead_model']._load,
             '3': self.__get_prospect,
-            '4': self.__model_instances['prospect_model'].get_prospects
+            '4': self.__model_instances['prospect_model']._load
         }.get(option, None)
 
         if not action:
@@ -23,13 +23,13 @@ class Menu:
         """This method call get lead info from the model
         """
         number_identification = input("Enter number identification: ")
-        self.__model_instances['lead_model'].get_lead(number_identification)
+        self.__model_instances['lead_model']._load_one(number_identification)
 
     def __get_prospect(self):
         """This method call get prospect info from the model
         """
         number_identification = input("Enter number identification: ")
-        self.__model_instances['prospect_model'].get_prospect(
+        self.__model_instances['prospect_model']._load_one(
             number_identification
         )
 
