@@ -5,18 +5,10 @@ from schemas.personal_info import PersonalInfo as PersonalInfoSchema
 
 class NationalRegister(BaseSystem):
 
-    def __init__(self):
-        self.__persons = []
-
     def _get_system_data(self):
         """This method obtains the system data
         """
-        return self.__persons
-
-    def populate(self):
-        """This method populate persons data info
-        """
-        self.__persons = [
+        return [
             PersonalInfoSchema(
                 "1234", datetime(1992, 5, 17),
                 "Carlos", "Vargas", "carlos@gmail.com"
