@@ -31,9 +31,9 @@ class BaseModel(ABC):
             self.__draw_not_has_data()
             return
 
-        person_info = self.__get_person_info(number_identification)
+        person_info = self._get_person_info(number_identification)
         if not person_info:
-            self.__draw_person_not_found(number_identification)
+            self._draw_person_not_found(number_identification)
             return
 
         print("\n*****************************\n")
@@ -45,7 +45,7 @@ class BaseModel(ABC):
         print(f"Email: {person_info._email} \n")
         print("***************************** \n\n")
 
-    def __get_person_info(self, number_identification: str) -> any:
+    def _get_person_info(self, number_identification: str) -> any:
         """This method obtains the person info
 
         :param number_identification: (str) The identification person
@@ -80,7 +80,7 @@ class BaseModel(ABC):
         print(f"List {self._get_entity_name()} are empty \n")
         print("***************************** \n\n")
 
-    def __draw_person_not_found(self, number_identification: str):
+    def _draw_person_not_found(self, number_identification: str):
         """This method draw error log when model not found person
         """
         print("\n*****************************\n")

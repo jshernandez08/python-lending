@@ -11,8 +11,9 @@ class Menu:
         action = {
             '1': self.__model_instances['lead_model']._load,
             '2': self.__get_lead,
-            '3': self.__model_instances['prospect_model']._load,
-            '4': self.__get_prospect
+            '3': self.__convert_in_prospect,
+            '4': self.__model_instances['prospect_model']._load,
+            '5': self.__get_prospect
         }.get(option, None)
 
         if not action:
@@ -24,6 +25,14 @@ class Menu:
         """
         number_identification = input("Enter number identification: ")
         self.__model_instances['lead_model']._load_one(number_identification)
+
+    def __convert_in_prospect(self):
+        """This method call convert lead in prospect from the model
+        """
+        number_identification = input("Enter number identification: ")
+        self.__model_instances['lead_model']._convert_in_prospect(
+            number_identification
+        )
 
     def __get_prospect(self):
         """This method call get prospect info from the model
@@ -44,6 +53,7 @@ class Menu:
         """
         print("(1) Get leaps info \n")
         print("(2) Get a leap info \n")
-        print("(3) Get prospects info \n")
-        print("(4) Get prospect info \n")
+        print("(3) Convert lead in prospect \n")
+        print("(4) Get prospects info \n")
+        print("(5) Get prospect info \n")
         print("(Any number outside the menu) Exit \n\n")

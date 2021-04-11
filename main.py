@@ -16,9 +16,18 @@ def populate_database():
         model_instance.populate()
 
 
+def add_dependencies():
+    """This method add dependencies models
+    """
+    model_instances['lead_model'].set_prospect_model(
+        model_instances['prospect_model']
+    )
+
+
 def start_app():
     """This method starts the app"""
     populate_database()
+    add_dependencies()
     menu = Menu(model_instances)
     while True:
         menu.draw_menu()

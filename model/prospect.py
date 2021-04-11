@@ -18,6 +18,13 @@ class Prospect(BaseModel):
         """
         return "prospects"
 
+    def add_propect(self, prospect: ProspectSchema):
+        """This method add a new prospect
+
+        :param prospect: (ProspectSchema) The prospect info
+        """
+        self.__prospects.append(prospect)
+
     def populate(self):
         """This method populate prospects data info
         """
