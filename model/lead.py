@@ -1,3 +1,4 @@
+from random import randint
 from model.base import BaseModel
 from mocks.leads import get_leads_data
 from schemas.prospect import Prospect as ProspectSchema
@@ -70,6 +71,11 @@ class Lead(BaseModel):
             self.__draw_error_judicial(number_identification)
             return
 
+        person_score = self.__calify()
+        if person_score < 60:
+            self.__draw_error_score(number_identification, person_score)
+            return
+
         self.__remove_lead(number_identification)
         self.__prospect_model.add_propect(
             ProspectSchema(
@@ -104,6 +110,17 @@ class Lead(BaseModel):
         )
         print("***************************** \n\n")
 
+    def __draw_error_score(self, number_identification: str, score: int):
+        """This method draw log error when lead has score less than 60
+        """
+        print("\n*****************************\n")
+        print(
+            f"Person with identidicacion {number_identification} "
+            f"has a score equal to {score} and this score less than 60, so "
+            "you can not have convert this in prospect\n"
+        )
+        print("***************************** \n\n")
+
     def __draw_success_convert_prospect(self, number_identification: str):
         print("\n*****************************\n")
         print(
@@ -112,5 +129,9 @@ class Lead(BaseModel):
         )
         print("***************************** \n\n")
 
-    def __calify_lead(self):
-        pass
+    def __calify(self):
+        """This method obtains a random score for a lead
+
+        :return: (int) The random score
+        """
+        return randint(0, 100)
