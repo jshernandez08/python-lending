@@ -1,6 +1,5 @@
-from datetime import datetime
 from model.base import BaseModel
-from schemas.lead import Lead as LeadSchema
+from mocks.leads import get_leads_data
 from schemas.prospect import Prospect as ProspectSchema
 from model.prospect import Prospect as ProspectModel
 from external_resources.national_register import NationalRegister
@@ -41,20 +40,7 @@ class Lead(BaseModel):
     def populate(self):
         """This method populate leads data info
         """
-        self.__leads = [
-            LeadSchema(
-                "1234", datetime(1992, 5, 17),
-                "Carlos", "Vargas", "carlos@gmail.com"
-            ),
-            LeadSchema(
-                "56789", datetime(1980, 8, 16), "Alexa", "Ruiz",
-                "alexa@gmail.com"
-            ),
-            LeadSchema(
-                "9812", datetime(1980, 8, 16), "Javier", "Correa",
-                "javier@gmail.com"
-            )
-        ]
+        self.__leads = get_leads_data()
 
     def _convert_in_prospect(self, number_identification: str):
         """This method verifies and convert a lead in prospect

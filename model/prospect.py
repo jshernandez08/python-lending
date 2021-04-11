@@ -1,5 +1,5 @@
-from datetime import datetime
 from model.base import BaseModel
+from mocks.prospects import get_prospects_data
 from schemas.prospect import Prospect as ProspectSchema
 
 
@@ -28,13 +28,4 @@ class Prospect(BaseModel):
     def populate(self):
         """This method populate prospects data info
         """
-        self.__prospects = [
-            ProspectSchema(
-                "09876", datetime(1970, 5, 17),
-                "Juan", "Rodriguez", "juan@gmail.com"
-            ),
-            ProspectSchema(
-                "54321", datetime(1980, 11, 16), "Sandra", "Valencia",
-                "sandra@gmail.com"
-            )
-        ]
+        self.__prospects = get_prospects_data()
