@@ -15,6 +15,12 @@ class BaseModel(ABC):
         """
         return ""
 
+    @abstractmethod
+    def populate(self):
+        """This method populate data info
+        """
+        pass
+
     def _load_one(self, number_identification: str):
         """This method draw the person info
 
@@ -31,7 +37,8 @@ class BaseModel(ABC):
             return
 
         print("\n*****************************\n")
-        print(f"Identification number: {person_info._number_identification} \n")
+        print(
+            f"Identification number: {person_info._number_identification} \n")
         print(f"Date of birth: {person_info._date_birth} \n")
         print(f"Name: {person_info._name} \n")
         print(f"Last name: {person_info._last_name} \n")
@@ -77,6 +84,6 @@ class BaseModel(ABC):
         """This method draw error log when model not found person
         """
         print("\n*****************************\n")
-        print(f"Person with identidicacion {number_identification} not found \n")
+        print(
+            f"Person with identidicacion {number_identification} not found \n")
         print("***************************** \n\n")
-
