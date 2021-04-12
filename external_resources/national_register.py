@@ -10,3 +10,8 @@ class NationalRegister(BaseSystem):
         """This method obtains the system data
         """
         return get_national_register_data()
+
+    def _get_system_name(self) -> str:
+        """This method obtains the system name
+        """
+        return "register"

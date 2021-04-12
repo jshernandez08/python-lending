@@ -1,5 +1,6 @@
 from typing import List
 from random import randint
+from multiprocessing import Pool
 from model.base import BaseModel
 from mocks.leads import get_leads_data
 from schemas.prospect import Prospect as ProspectSchema
@@ -63,12 +64,21 @@ class Lead(BaseModel):
             'email': person_info._email
         }
 
-        person_national_register_info = NationalRegister()._load_one(query)
+        # connect with external systems parallelly
+        pool = Pool()
+        conn_national_register = pool.apply_async(
+            NationalRegister()._load_one, (query,)
+        )
+        conn_national_judicial = pool.apply_async(
+            NationalJudicial()._load_one, (query,)
+        )
+        person_national_register_info = conn_national_register.get()
+        person_judicial_info = conn_national_judicial.get()
+
         if not person_national_register_info:
             self.__draw_error_not_in_register(number_identification)
             return
 
-        person_judicial_info = NationalJudicial()._load_one(query)
         if person_judicial_info is not None:
             self.__draw_error_judicial(number_identification)
             return
