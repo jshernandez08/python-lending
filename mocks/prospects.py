@@ -1,8 +1,9 @@
+from typing import List
 from datetime import datetime
 from schemas.prospect import Prospect as ProspectSchema
 
 
-def get_prospects_data():
+def get_prospects_data() -> List[ProspectSchema]:
     """This method obtains the prospects data
     """
     return [

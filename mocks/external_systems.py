@@ -1,8 +1,9 @@
+from typing import List
 from datetime import datetime
 from schemas.personal_info import PersonalInfo as PersonalInfoSchema
 
 
-def get_national_register_data():
+def get_national_register_data() -> List[PersonalInfoSchema]:
     """This method obtains the national register data
     """
     return [
@@ -17,7 +18,7 @@ def get_national_register_data():
     ]
 
 
-def get_national_judicial_data():
+def get_national_judicial_data() -> List[PersonalInfoSchema]:
     """This method obtains the national judicial data
     """
     return [

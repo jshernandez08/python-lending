@@ -1,7 +1,9 @@
+from typing import List
 from random import randint
 from model.base import BaseModel
 from mocks.leads import get_leads_data
 from schemas.prospect import Prospect as ProspectSchema
+from schemas.lead import Lead as LeadSchema
 from model.prospect import Prospect as ProspectModel
 from external_resources.national_register import NationalRegister
 from external_resources.national_judicial import NationalJudicial
@@ -18,12 +20,12 @@ class Lead(BaseModel):
         """
         self.__prospect_model = prospect_model
 
-    def _get_model_data(self):
+    def _get_model_data(self) -> List[LeadSchema]:
         """This method obtains the model data
         """
         return self.__leads
 
-    def _get_entity_name(self):
+    def _get_entity_name(self) -> str:
         """This method obtains the model data
         """
         return "leads"

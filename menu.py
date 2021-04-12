@@ -1,6 +1,6 @@
 class Menu:
 
-    def __init__(self, model_instances):
+    def __init__(self, model_instances: dict):
         self.__model_instances = model_instances
 
     def execute_action(self, option: str):

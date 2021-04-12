@@ -1,8 +1,9 @@
+from typing import List
 from datetime import datetime
 from schemas.lead import Lead as LeadSchema
 
 
-def get_leads_data():
+def get_leads_data() -> List[LeadSchema]:
     """This method obtains the leads data
     """
     return [

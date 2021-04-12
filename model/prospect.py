@@ -1,3 +1,4 @@
+from typing import List
 from model.base import BaseModel
 from mocks.prospects import get_prospects_data
 from schemas.prospect import Prospect as ProspectSchema
@@ -8,12 +9,12 @@ class Prospect(BaseModel):
     def __init__(self):
         self.__prospects = []
 
-    def _get_model_data(self):
+    def _get_model_data(self) -> List[ProspectSchema]:
         """This method obtains the model data
         """
         return self.__prospects
 
-    def _get_entity_name(self):
+    def _get_entity_name(self) -> str:
         """This method obtains the model data
         """
         return "prospects"
