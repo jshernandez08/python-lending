@@ -4,6 +4,10 @@ ADDI Challenge correr la aplicacion con el siguiente comando, leer menu y seguir
 
 Version de python 3.9.2
 
+instalar dependencias
+
+`pip install -r requirements.txt`
+
 ### Analisis
 
 1. Las personas de ventas hacen uso del CRM interno de la empresa para validar si realmente un lead puede convertirse en prospecto de la empresa en base a la infomacion suministrada por este, las personas de ventas validan esta informacion de forma manual verificando sus datos.
