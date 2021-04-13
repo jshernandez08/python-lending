@@ -1,4 +1,8 @@
-ADDI Challenge
+ADDI Challenge correr la aplicacion con el siguiente comando, leer menu y seguir las intrucciones
+
+`python main.py`
+
+Version de python 3.9.2
 
 ### Analisis
 
@@ -29,3 +33,35 @@ ADDI Challenge
 2. Que criterios usa el sistema de calificacion para puntear un prospecto entre 0 y 100, segun los datos obtenidos del sistema externo. en el proyecto se realizo de forma aleatoria, pero deberia realizarse un calculo mas racional.
 
 3. Se podria gregar la informacion de fecha y expedicion de documento de identificación, con el fin de tener mas certeza que el lead es quien dice ser.
+
+### Notas de interes
+
+**Clases desarrolladas**
+
+Class Menu
+
+Class BaseModel
+
+Class modelo lead => hereda de BaseModel
+
+Class modelo prospect => hereda de BaseModel
+
+Class PersonalInfo
+
+Class Lead => hereda de PersonalInfo
+
+Class Prospect => hereda de PersonalInfo
+
+Class Basesystem
+
+Class nationalRegister => hereda Basesystem
+
+Class nationalJudicial => hereda Basesystem
+
+**Usuarios con restricciones**
+
+"9812 - Javier Correa - javier@gmail.com"
+No puede ser convertido no esta en el registro nacional
+
+"1234 - Carlos Vargas - carlos@gmail.com"
+No puede ser convertido por registros judiciales
