@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from prettytable import PrettyTable
 
 
 class BaseModel(ABC):
@@ -36,14 +37,23 @@ class BaseModel(ABC):
             self._draw_person_not_found(number_identification)
             return
 
-        print("\n*****************************\n")
-        print(
-            f"Identification number: {person_info._number_identification} \n")
-        print(f"Date of birth: {person_info._date_birth} \n")
-        print(f"Name: {person_info._name} \n")
-        print(f"Last name: {person_info._last_name} \n")
-        print(f"Email: {person_info._email} \n")
-        print("***************************** \n\n")
+        print("\n")
+        x = PrettyTable()
+        x.field_names = [
+            "Identification number", "Date of birth",
+            "Name", "Last name", "Email"
+        ]
+        x.add_rows([
+            [
+                person_info._number_identification,
+                person_info._date_birth,
+                person_info._name,
+                person_info._last_name,
+                person_info._email
+            ]
+        ])
+        print(x)
+        print("\n")
 
     def _get_person_info(self, number_identification: str) -> any:
         """This method obtains the person info
@@ -64,26 +74,34 @@ class BaseModel(ABC):
             self.__draw_not_has_data()
             return
 
+        print("\n")
+        x = PrettyTable()
+        x.field_names = [
+            "Identification number", "Date of birth",
+            "Name", "Last name", "Email"
+        ]
         for person in model_data:
-            print("\n*****************************\n")
-            print(f"Identification number: {person._number_identification} \n")
-            print(f"Date of birth: {person._date_birth} \n")
-            print(f"Name: {person._name} \n")
-            print(f"Last name: {person._last_name} \n")
-            print(f"Email: {person._email} \n")
-            print("***************************** \n\n")
+            x.add_row([
+                person._number_identification,
+                person._date_birth,
+                person._name,
+                person._last_name,
+                person._email
+            ])
+        print(x)
+        print("\n")
 
     def __draw_not_has_data(self):
         """This method draw error log when model not have data
         """
-        print("\n*****************************\n")
+        print("\n")
         print(f"List {self._get_entity_name()} are empty \n")
-        print("***************************** \n\n")
+        print("\n")
 
     def _draw_person_not_found(self, number_identification: str):
         """This method draw error log when model not found person
         """
-        print("\n*****************************\n")
+        print("\n")
         print(
             f"Person with identidicacion {number_identification} not found \n")
-        print("***************************** \n\n")
+        print("\n")

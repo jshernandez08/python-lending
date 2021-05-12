@@ -103,43 +103,43 @@ class Lead(BaseModel):
     def __draw_error_not_in_register(self, number_identification: str):
         """This method draw log error when lead no in national register
         """
-        print("\n*****************************\n")
+        print("\n")
         print(
             f"Person with identidicacion {number_identification} "
             "not in national register, "
-            "you can not have convert this in prospect\n"
+            "you can not have convert this in prospect"
         )
-        print("***************************** \n\n")
+        print("\n")
 
     def __draw_error_judicial(self, number_identification: str):
         """This method draw log error when lead has judicial registers
         """
-        print("\n*****************************\n")
+        print("\n")
         print(
             f"Person with identidicacion {number_identification} "
             "has judicial registers, "
-            "you can not have convert this in prospect\n"
+            "you can not have convert this in prospect"
         )
-        print("***************************** \n\n")
+        print("\n")
 
     def __draw_error_score(self, number_identification: str, score: int):
         """This method draw log error when lead has score less than 60
         """
-        print("\n*****************************\n")
+        print("\n")
         print(
             f"Person with identidicacion {number_identification} "
             f"has a score equal to {score} and this score less than 60, so "
-            "you can not have convert this in prospect\n"
+            "you can not have convert this in prospect"
         )
-        print("***************************** \n\n")
+        print("\n")
 
     def __draw_success_convert_prospect(self, number_identification: str):
-        print("\n*****************************\n")
+        print("\n")
         print(
             f"Person with identidicacion {number_identification} "
-            "convert in prospect successfully\n"
+            "convert in prospect successfully"
         )
-        print("***************************** \n\n")
+        print("\n")
 
     def __calify(self):
         """This method obtains a random score for a lead
