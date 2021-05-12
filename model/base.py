@@ -37,7 +37,6 @@ class BaseModel(ABC):
             self._draw_person_not_found(number_identification)
             return
 
-        print("\n")
         x = PrettyTable()
         x.field_names = [
             "Identification number", "Date of birth",
@@ -52,6 +51,7 @@ class BaseModel(ABC):
                 person_info._email
             ]
         ])
+        print("\n")
         print(x)
         print("\n")
 
@@ -74,7 +74,6 @@ class BaseModel(ABC):
             self.__draw_not_has_data()
             return
 
-        print("\n")
         x = PrettyTable()
         x.field_names = [
             "Identification number", "Date of birth",
@@ -88,6 +87,7 @@ class BaseModel(ABC):
                 person._last_name,
                 person._email
             ])
+        print("\n")
         print(x)
         print("\n")
 
